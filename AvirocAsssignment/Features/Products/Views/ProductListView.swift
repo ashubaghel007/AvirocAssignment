@@ -1,10 +1,3 @@
-//
-//  ProductListView.swift
-//  AvirocAssignment
-//
-//  Created by Ashish Baghel on 22/05/2026.
-//
-
 import SwiftUI
 
 struct ProductListView: View {
@@ -13,13 +6,17 @@ struct ProductListView: View {
 
     private let columns = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
 
     var body: some View {
         NavigationStack {
             content
                 .navigationTitle("Products")
+                .searchable(
+                    text: $viewModel.searchText,
+                    prompt: "Search Products"
+                )
                 .task {
                     viewModel.fetchProducts()
                 }
@@ -29,44 +26,49 @@ struct ProductListView: View {
     @ViewBuilder
     private var content: some View {
         switch viewModel.state {
+
         case .loading:
             ProgressView("Loading...")
-        case .empty, .idle:
-            Text("No Products Found")
+        case .idle, .empty:
+            ContentUnavailableView(
+                "No Products Found",
+                systemImage: "magnifyingglass"
+            )
         case .failure(let error):
-            Text(error.localizedDescription)
+            ContentUnavailableView(
+                error.localizedDescription,
+                systemImage: "exclamationmark.triangle"
+            )
         case .success(let products):
             VStack {
-                TextField("Search Products", text: $viewModel.searchText)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
-
                 HStack {
                     Menu {
                         ForEach(
                             viewModel.categories,
                             id: \.self
                         ) { category in
+
                             Button(category) {
                                 viewModel.selectedCategory = category
                             }
                         }
                     } label: {
-                        Text(viewModel.selectedCategory)
+                        Label(
+                            viewModel.selectedCategory,
+                            systemImage: "line.3.horizontal.decrease.circle"
+                        )
                     }
-
                     Spacer()
-
                     Picker(
                         "Sort",
                         selection: $viewModel.sortOption
                     ) {
-
                         ForEach(
                             SortOption.allCases,
                             id: \.self
-                        ) {
-                            Text($0.rawValue)
+                        ) { option in
+                            Text(option.rawValue)
+                                .tag(option)
                         }
                     }
                     .pickerStyle(.menu)

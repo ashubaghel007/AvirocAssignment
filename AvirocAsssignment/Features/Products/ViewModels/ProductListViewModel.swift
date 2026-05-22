@@ -17,16 +17,19 @@ enum SortOption: String, CaseIterable {
 
 @Observable
 final class ProductListViewModel {
-    
+
     @ObservationIgnored
     var products: [Product] = []
-    
+
     @ObservationIgnored
     private var cancellables = Set<AnyCancellable>()
 
+    @ObservationIgnored
+    private let searchSubject = PassthroughSubject<String, Never>()
+
     var searchText = "" {
         didSet {
-            applyFilters()
+            searchSubject.send(searchText)
         }
     }
 
@@ -48,24 +51,42 @@ final class ProductListViewModel {
 
     init(service: ProductServiceProtocol = ProductService()) {
         self.service = service
+        setupSearchDebounce()
+    }
+
+    private func setupSearchDebounce() {
+        searchSubject
+            .debounce(
+                for: .milliseconds(500),
+                scheduler: RunLoop.main
+            )
+            .removeDuplicates()
+            .sink { [weak self] _ in
+                self?.applyFilters()
+            }
+            .store(in: &cancellables)
     }
 
     func fetchProducts() {
         state = .loading
+
         service.fetchProducts()
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
                     self?.state = .failure(error)
                 }
+
             } receiveValue: { [weak self] products in
-                guard let weakSelf = self else { return }
-                weakSelf.products = products
-                weakSelf.applyFilters()
-            }.store(in: &cancellables)
+                guard let self else { return }
+                self.products = products
+                self.applyFilters()
+            }
+            .store(in: &cancellables)
     }
 
     func applyFilters() {
         var filtered = products
+
         if !searchText.isEmpty {
             filtered = filtered.filter {
                 $0.title.localizedCaseInsensitiveContains(searchText)
@@ -89,10 +110,7 @@ final class ProductListViewModel {
             filtered.sort { $0.rating.rate > $1.rating.rate }
         }
 
-        self.state =
-            products.isEmpty
-            ? .empty
-            : .success(filtered)
+        state = filtered.isEmpty ? .empty : .success(filtered)
     }
 
     var categories: [String] {
