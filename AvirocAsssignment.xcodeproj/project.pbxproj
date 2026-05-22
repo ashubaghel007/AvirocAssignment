@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		46A1C4212FC0C5D4007AE75E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A1C40B2FC0C5D3007AE75E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46A1C4122FC0C5D3007AE75E;
+			remoteInfo = AvirocAsssignment;
+		};
+		46A1C42B2FC0C5D4007AE75E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A1C40B2FC0C5D3007AE75E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46A1C4122FC0C5D3007AE75E;
+			remoteInfo = AvirocAsssignment;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46A1C4132FC0C5D3007AE75E /* AvirocAsssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvirocAsssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A1C4202FC0C5D4007AE75E /* AvirocAsssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvirocAsssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A1C42A2FC0C5D4007AE75E /* AvirocAsssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvirocAsssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		46A1C46D2FC0C5FF007AE75E /* Exceptions for "AvirocAsssignment" folder in "AvirocAsssignmentTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Network/APIEndpoint.swift,
+				Core/Network/APIError.swift,
+				Core/Network/NetworkService.swift,
+				Core/Network/NetworkServiceProtocol.swift,
+				Features/Products/Models/Product.swift,
+				Features/Products/Services/ProductService.swift,
+				Features/Products/ViewModels/ProductListViewModel.swift,
+				Features/Products/Views/ProductCellView.swift,
+				Features/Products/Views/ProductDetailView.swift,
+				Features/Products/Views/ProductListView.swift,
+				Shared/States/ViewState.swift,
+			);
+			target = 46A1C41F2FC0C5D4007AE75E /* AvirocAsssignmentTests */;
+		};
+		46A1C46E2FC0C5FF007AE75E /* Exceptions for "AvirocAsssignment" folder in "AvirocAsssignmentUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Network/APIEndpoint.swift,
+				Core/Network/APIError.swift,
+				Core/Network/NetworkService.swift,
+				Core/Network/NetworkServiceProtocol.swift,
+				Features/Products/Models/Product.swift,
+				Features/Products/Services/ProductService.swift,
+				Features/Products/ViewModels/ProductListViewModel.swift,
+				Features/Products/Views/ProductCellView.swift,
+				Features/Products/Views/ProductDetailView.swift,
+				Features/Products/Views/ProductListView.swift,
+				Shared/States/ViewState.swift,
+			);
+			target = 46A1C4292FC0C5D4007AE75E /* AvirocAsssignmentUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		46A1C4152FC0C5D3007AE75E /* AvirocAsssignment */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				46A1C46D2FC0C5FF007AE75E /* Exceptions for "AvirocAsssignment" folder in "AvirocAsssignmentTests" target */,
+				46A1C46E2FC0C5FF007AE75E /* Exceptions for "AvirocAsssignment" folder in "AvirocAsssignmentUITests" target */,
+			);
+			path = AvirocAsssignment;
+			sourceTree = "<group>";
+		};
+		46A1C4232FC0C5D4007AE75E /* AvirocAsssignmentTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AvirocAsssignmentTests;
+			sourceTree = "<group>";
+		};
+		46A1C42D2FC0C5D4007AE75E /* AvirocAsssignmentUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AvirocAsssignmentUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46A1C4102FC0C5D3007AE75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C41D2FC0C5D4007AE75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C4272FC0C5D4007AE75E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46A1C40A2FC0C5D3007AE75E = {
+			isa = PBXGroup;
+			children = (
+				46A1C4152FC0C5D3007AE75E /* AvirocAsssignment */,
+				46A1C4232FC0C5D4007AE75E /* AvirocAsssignmentTests */,
+				46A1C42D2FC0C5D4007AE75E /* AvirocAsssignmentUITests */,
+				46A1C4142FC0C5D3007AE75E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46A1C4142FC0C5D3007AE75E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46A1C4132FC0C5D3007AE75E /* AvirocAsssignment.app */,
+				46A1C4202FC0C5D4007AE75E /* AvirocAsssignmentTests.xctest */,
+				46A1C42A2FC0C5D4007AE75E /* AvirocAsssignmentUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46A1C4122FC0C5D3007AE75E /* AvirocAsssignment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A1C4342FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignment" */;
+			buildPhases = (
+				46A1C40F2FC0C5D3007AE75E /* Sources */,
+				46A1C4102FC0C5D3007AE75E /* Frameworks */,
+				46A1C4112FC0C5D3007AE75E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				46A1C4152FC0C5D3007AE75E /* AvirocAsssignment */,
+			);
+			name = AvirocAsssignment;
+			packageProductDependencies = (
+			);
+			productName = AvirocAsssignment;
+			productReference = 46A1C4132FC0C5D3007AE75E /* AvirocAsssignment.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46A1C41F2FC0C5D4007AE75E /* AvirocAsssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A1C4372FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignmentTests" */;
+			buildPhases = (
+				46A1C41C2FC0C5D4007AE75E /* Sources */,
+				46A1C41D2FC0C5D4007AE75E /* Frameworks */,
+				46A1C41E2FC0C5D4007AE75E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46A1C4222FC0C5D4007AE75E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				46A1C4232FC0C5D4007AE75E /* AvirocAsssignmentTests */,
+			);
+			name = AvirocAsssignmentTests;
+			packageProductDependencies = (
+			);
+			productName = AvirocAsssignmentTests;
+			productReference = 46A1C4202FC0C5D4007AE75E /* AvirocAsssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		46A1C4292FC0C5D4007AE75E /* AvirocAsssignmentUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A1C43A2FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignmentUITests" */;
+			buildPhases = (
+				46A1C4262FC0C5D4007AE75E /* Sources */,
+				46A1C4272FC0C5D4007AE75E /* Frameworks */,
+				46A1C4282FC0C5D4007AE75E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46A1C42C2FC0C5D4007AE75E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				46A1C42D2FC0C5D4007AE75E /* AvirocAsssignmentUITests */,
+			);
+			name = AvirocAsssignmentUITests;
+			packageProductDependencies = (
+			);
+			productName = AvirocAsssignmentUITests;
+			productReference = 46A1C42A2FC0C5D4007AE75E /* AvirocAsssignmentUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46A1C40B2FC0C5D3007AE75E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					46A1C4122FC0C5D3007AE75E = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					46A1C41F2FC0C5D4007AE75E = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 46A1C4122FC0C5D3007AE75E;
+					};
+					46A1C4292FC0C5D4007AE75E = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 46A1C4122FC0C5D3007AE75E;
+					};
+				};
+			};
+			buildConfigurationList = 46A1C40E2FC0C5D3007AE75E /* Build configuration list for PBXProject "AvirocAsssignment" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46A1C40A2FC0C5D3007AE75E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 46A1C4142FC0C5D3007AE75E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46A1C4122FC0C5D3007AE75E /* AvirocAsssignment */,
+				46A1C41F2FC0C5D4007AE75E /* AvirocAsssignmentTests */,
+				46A1C4292FC0C5D4007AE75E /* AvirocAsssignmentUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46A1C4112FC0C5D3007AE75E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C41E2FC0C5D4007AE75E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C4282FC0C5D4007AE75E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46A1C40F2FC0C5D3007AE75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C41C2FC0C5D4007AE75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A1C4262FC0C5D4007AE75E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46A1C4222FC0C5D4007AE75E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46A1C4122FC0C5D3007AE75E /* AvirocAsssignment */;
+			targetProxy = 46A1C4212FC0C5D4007AE75E /* PBXContainerItemProxy */;
+		};
+		46A1C42C2FC0C5D4007AE75E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46A1C4122FC0C5D3007AE75E /* AvirocAsssignment */;
+			targetProxy = 46A1C42B2FC0C5D4007AE75E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		46A1C4322FC0C5D4007AE75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		46A1C4332FC0C5D4007AE75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46A1C4352FC0C5D4007AE75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46A1C4362FC0C5D4007AE75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignment;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		46A1C4382FC0C5D4007AE75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvirocAsssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvirocAsssignment";
+			};
+			name = Debug;
+		};
+		46A1C4392FC0C5D4007AE75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvirocAsssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvirocAsssignment";
+			};
+			name = Release;
+		};
+		46A1C43B2FC0C5D4007AE75E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AvirocAsssignment;
+			};
+			name = Debug;
+		};
+		46A1C43C2FC0C5D4007AE75E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baghelashish.AvirocAsssignmentUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AvirocAsssignment;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46A1C40E2FC0C5D3007AE75E /* Build configuration list for PBXProject "AvirocAsssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A1C4322FC0C5D4007AE75E /* Debug */,
+				46A1C4332FC0C5D4007AE75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A1C4342FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A1C4352FC0C5D4007AE75E /* Debug */,
+				46A1C4362FC0C5D4007AE75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A1C4372FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A1C4382FC0C5D4007AE75E /* Debug */,
+				46A1C4392FC0C5D4007AE75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A1C43A2FC0C5D4007AE75E /* Build configuration list for PBXNativeTarget "AvirocAsssignmentUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A1C43B2FC0C5D4007AE75E /* Debug */,
+				46A1C43C2FC0C5D4007AE75E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46A1C40B2FC0C5D3007AE75E /* Project object */;
+}
