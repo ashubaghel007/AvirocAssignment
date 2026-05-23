@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+
 @testable import AvirocAsssignment
 
 final class ProductListViewModelTests: XCTestCase {
@@ -52,6 +53,7 @@ final class ProductListViewModelTests: XCTestCase {
         }
 
         XCTAssertEqual(products.count, 2)
+        XCTAssertEqual(products.first?.title, "T-Shirt")
     }
 
     func test_fetchProducts_failure_updatesStateWithError() {
@@ -101,7 +103,7 @@ final class ProductListViewModelTests: XCTestCase {
 
         // Given
         sut.products = MockData.products
-        sut.selectedCategory = "Electronics"
+        sut.selectedCategory = "smartphones"
 
         // When
         sut.applyFilters()
@@ -113,7 +115,7 @@ final class ProductListViewModelTests: XCTestCase {
         }
 
         XCTAssertEqual(products.count, 1)
-        XCTAssertEqual(products.first?.category, "Electronics")
+        XCTAssertEqual(products.first?.category, "smartphones")
     }
 
     // MARK: - Sorting
@@ -169,11 +171,10 @@ final class ProductListViewModelTests: XCTestCase {
             return
         }
 
-        XCTAssertEqual(products.first?.rating.rate, 4.8)
+        XCTAssertEqual(products.first?.rating, 4.8)
     }
 
     // MARK: - Empty State
-
     func test_applyFilters_withNoMatchingProducts_returnsEmptyState() {
 
         // Given
@@ -188,5 +189,22 @@ final class ProductListViewModelTests: XCTestCase {
             XCTFail("Expected empty state")
             return
         }
+    }
+
+    // MARK: - Categories
+
+    func test_categories_returnsAllCategories() {
+
+        // Given
+        sut.products = MockData.products
+
+        // When
+        let categories = sut.categories
+
+        // Then
+        XCTAssertEqual(
+            categories,
+            ["All", "mens-shirts", "smartphones"]
+        )
     }
 }
