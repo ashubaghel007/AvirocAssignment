@@ -28,56 +28,25 @@ struct ProductListView: View {
     @ViewBuilder
     private var content: some View {
         switch viewModel.state {
-
         case .loading:
             ProgressView("Loading...")
         case .idle, .empty:
-            ContentUnavailableView("No Products Found",
-                                   systemImage: "magnifyingglass"
+            ContentUnavailableView(
+                "No Products Found",
+                systemImage: "magnifyingglass"
             )
         case .failure(let error):
-            ContentUnavailableView(error.localizedDescription,
-                                   systemImage: "exclamationmark.triangle"
+            ContentUnavailableView(
+                error.localizedDescription,
+                systemImage: "exclamationmark.triangle"
             )
         case .success(let products):
             VStack {
-                HStack {
-                    Menu {
-                        ForEach(
-                            viewModel.categories,
-                            id: \.self
-                        ) { category in
+                // menu
+                menuContent
+                    .padding(.horizontal)
 
-                            Button(category) {
-                                viewModel.selectedCategory = category
-                            }
-                        }
-                    } label: {
-                        Label(
-                            viewModel.selectedCategory,
-                            systemImage: "line.3.horizontal.decrease.circle"
-                        )
-                    }
-
-                    Spacer()
-
-                    Picker(
-                        "Sort",
-                        selection: $viewModel.sortOption
-                    ) {
-                        ForEach(
-                            SortOption.allCases,
-                            id: \.self
-                        ) { option in
-                            Text(option.rawValue)
-                                .tag(option)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                }
-                .padding(.horizontal)
-
-                // List View
+                // List View to display items
                 List(products) { product in
                     NavigationLink {
                         ProductDetailView(product: product)
@@ -89,6 +58,43 @@ struct ProductListView: View {
                 }
                 .listStyle(.plain)
             }
+        }
+    }
+
+    @ViewBuilder
+    private var menuContent: some View {
+        HStack {
+            Menu {
+                ForEach(
+                    viewModel.categories,
+                    id: \.self
+                ) { category in
+                    Button(category) {
+                        viewModel.selectedCategory = category
+                    }
+                }
+            } label: {
+                Label(
+                    viewModel.selectedCategory,
+                    systemImage: "line.3.horizontal.decrease.circle"
+                )
+            }
+
+            Spacer()
+
+            Picker(
+                "Sort",
+                selection: $viewModel.sortOption
+            ) {
+                ForEach(
+                    SortOption.allCases,
+                    id: \.self
+                ) { option in
+                    Text(option.rawValue)
+                        .tag(option)
+                }
+            }
+            .pickerStyle(.menu)
         }
     }
 }
