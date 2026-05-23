@@ -1,13 +1,15 @@
+//
+//  ProductListView.swift
+//  AvirocAssignment
+//
+//  Created by Ashish Baghel on 22/05/2026.
+//
+
 import SwiftUI
 
 struct ProductListView: View {
 
     @State private var viewModel = ProductListViewModel()
-
-    private let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
 
     var body: some View {
         NavigationStack {
@@ -30,14 +32,12 @@ struct ProductListView: View {
         case .loading:
             ProgressView("Loading...")
         case .idle, .empty:
-            ContentUnavailableView(
-                "No Products Found",
-                systemImage: "magnifyingglass"
+            ContentUnavailableView("No Products Found",
+                                   systemImage: "magnifyingglass"
             )
         case .failure(let error):
-            ContentUnavailableView(
-                error.localizedDescription,
-                systemImage: "exclamationmark.triangle"
+            ContentUnavailableView(error.localizedDescription,
+                                   systemImage: "exclamationmark.triangle"
             )
         case .success(let products):
             VStack {
@@ -58,7 +58,9 @@ struct ProductListView: View {
                             systemImage: "line.3.horizontal.decrease.circle"
                         )
                     }
+
                     Spacer()
+
                     Picker(
                         "Sort",
                         selection: $viewModel.sortOption
@@ -75,22 +77,17 @@ struct ProductListView: View {
                 }
                 .padding(.horizontal)
 
-                ScrollView {
-                    LazyVGrid(
-                        columns: columns,
-                        spacing: 16
-                    ) {
-                        ForEach(products) { product in
-                            NavigationLink {
-                                ProductDetailView(product: product)
-                            } label: {
-                                ProductCellView(product: product)
-                            }
-                            .buttonStyle(.plain)
-                        }
+                // List View
+                List(products) { product in
+                    NavigationLink {
+                        ProductDetailView(product: product)
+                    } label: {
+                        ProductCellView(product: product)
                     }
-                    .padding()
+                    .buttonStyle(.plain)
+                    .listRowSeparator(.hidden)
                 }
+                .listStyle(.plain)
             }
         }
     }

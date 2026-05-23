@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct ProductCellView: View {
-
     let product: Product
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        HStack(alignment: .top, spacing: 12) {
             AsyncImage(url: URL(string: product.image)) { image in
                 image
                     .resizable()
                     .scaledToFit()
+
             } placeholder: {
                 ProgressView()
             }
-            .frame(height: 120)
+            .frame(width: 100, height: 100)
 
-            Text(product.title)
-                .font(.headline)
-                .lineLimit(2)
+            VStack(alignment: .leading, spacing: 8) {
+                Text(product.title)
+                    .font(.headline)
+                    .lineLimit(2)
 
-            Text("$\(product.price, specifier: "%.2f")")
+                Text("$\(product.price, specifier: "%.2f")")
+                    .font(.subheadline)
 
-            Text("⭐️ \(product.rating.rate, specifier: "%.1f")")
-                .font(.caption)
+                Text("⭐️ \(product.rating.rate, specifier: "%.1f")")
+                    .font(.caption)
+            }
+
+            Spacer()
         }
-        .padding()
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(12)
+        .padding(.vertical, 8)
     }
 }
