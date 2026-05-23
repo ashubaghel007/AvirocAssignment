@@ -3,7 +3,6 @@
 //  AvriocAssignment
 //
 //  Created by Ashish Baghel on 22/05/2026.
-//
 
 import Combine
 import Foundation
@@ -21,11 +20,7 @@ final class ProductListViewModel {
     @ObservationIgnored
     var products: [Product] = []
 
-    @ObservationIgnored
-    private var cancellables = Set<AnyCancellable>()
-
-    @ObservationIgnored
-    private let searchSubject = PassthroughSubject<String, Never>()
+    var state: ViewState<[Product]> = .idle
 
     var searchText = "" {
         didSet {
@@ -45,15 +40,29 @@ final class ProductListViewModel {
         }
     }
 
-    var state: ViewState<[Product]> = .idle
+    // MARK: - Pagination
+    private(set) var currentPage = 1
+    private let limit = 10
+
+    private var isLoading = false
+    private var hasMorePages = true
+
+    // MARK: - Private Properties
+    @ObservationIgnored
+    private var cancellables = Set<AnyCancellable>()
+
+    @ObservationIgnored
+    private let searchSubject = PassthroughSubject<String, Never>()
 
     private let service: ProductServiceProtocol
 
+    // MARK: - Init
     init(service: ProductServiceProtocol = ProductService()) {
         self.service = service
         setupSearchDebounce()
     }
 
+    // MARK: - Search
     private func setupSearchDebounce() {
         searchSubject
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
@@ -64,23 +73,67 @@ final class ProductListViewModel {
             .store(in: &cancellables)
     }
 
+    // MARK: - Fetch Products
     func fetchProducts() {
-        state = .loading
 
-        service.fetchProducts()
-            .sink { [weak self] completion in
-                if case .failure(let error) = completion {
-                    self?.state = .failure(error)
-                }
-            } receiveValue: { [weak self] products in
-                guard let self else { return }
-                self.products = products
-                self.applyFilters()
+        guard !isLoading, hasMorePages else { return }
+
+        isLoading = true
+
+        if currentPage == 1 {
+            state = .loading
+        }
+
+        service.fetchProducts(
+            page: currentPage,
+            limit: limit
+        )
+        .receive(on: RunLoop.main)
+        .sink { [weak self] completion in
+
+            guard let self else { return }
+
+            self.isLoading = false
+
+            if case .failure(let error) = completion {
+                self.state = .failure(error)
             }
-            .store(in: &cancellables)
+
+        } receiveValue: { [weak self] newProducts in
+
+            guard let self else { return }
+
+            // Detect last page
+            if newProducts.count < self.limit {
+                self.hasMorePages = false
+            }
+
+            self.products.append(contentsOf: newProducts)
+
+            self.currentPage += 1
+
+            self.applyFilters()
+        }
+        .store(in: &cancellables)
     }
 
+    // MARK: - Load More Trigger
+
+    func loadMoreProductsIfNeeded(currentItem product: Product) {
+
+        guard let lastProduct = products.last else {
+            return
+        }
+
+        if product.id == lastProduct.id {
+            fetchProducts()
+        }
+    }
+
+    // MARK: - Filters
+
     func applyFilters() {
+
         var filtered = products
 
         // Search
@@ -99,19 +152,30 @@ final class ProductListViewModel {
 
         // Sorting
         switch sortOption {
+
         case .priceLowToHigh:
             filtered.sort { $0.price < $1.price }
+
         case .priceHighToLow:
             filtered.sort { $0.price > $1.price }
+
         case .rating:
             filtered.sort { $0.rating > $1.rating }
         }
 
-        state = filtered.isEmpty ? .empty : .success(filtered)
+        state = filtered.isEmpty
+            ? .empty
+            : .success(filtered)
     }
 
+    // MARK: - Categories
+
     var categories: [String] {
-        let categories = Set(products.map { $0.category })
+
+        let categories = Set(
+            products.map { $0.category }
+        )
+
         return ["All"] + categories.sorted()
     }
 }

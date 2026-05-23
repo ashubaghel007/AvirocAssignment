@@ -52,6 +52,11 @@ struct ProductListView: View {
                         ProductDetailView(product: product)
                     } label: {
                         ProductCellView(product: product)
+                            .onAppear {
+                                viewModel.loadMoreProductsIfNeeded(
+                                    currentItem: product
+                                )
+                            }
                     }
                     .buttonStyle(.plain)
                     .listRowSeparator(.hidden)
