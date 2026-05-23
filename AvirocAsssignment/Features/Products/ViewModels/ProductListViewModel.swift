@@ -90,28 +90,20 @@ final class ProductListViewModel {
         )
         .receive(on: RunLoop.main)
         .sink { [weak self] completion in
-
             guard let self else { return }
-
             self.isLoading = false
-
             if case .failure(let error) = completion {
                 self.state = .failure(error)
             }
-
         } receiveValue: { [weak self] newProducts in
-
             guard let self else { return }
-
             // Detect last page
             if newProducts.count < self.limit {
                 self.hasMorePages = false
             }
 
             self.products.append(contentsOf: newProducts)
-
             self.currentPage += 1
-
             self.applyFilters()
         }
         .store(in: &cancellables)
@@ -120,10 +112,7 @@ final class ProductListViewModel {
     // MARK: - Load More Trigger
 
     func loadMoreProductsIfNeeded(currentItem product: Product) {
-
-        guard let lastProduct = products.last else {
-            return
-        }
+        guard let lastProduct = products.last else { return }
 
         if product.id == lastProduct.id {
             fetchProducts()
@@ -163,19 +152,13 @@ final class ProductListViewModel {
             filtered.sort { $0.rating > $1.rating }
         }
 
-        state = filtered.isEmpty
-            ? .empty
-            : .success(filtered)
+        state = filtered.isEmpty ? .empty: .success(filtered)
     }
 
     // MARK: - Categories
 
     var categories: [String] {
-
-        let categories = Set(
-            products.map { $0.category }
-        )
-
+        let categories = Set(products.map { $0.category })
         return ["All"] + categories.sorted()
     }
 }
