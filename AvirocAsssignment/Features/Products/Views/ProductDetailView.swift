@@ -15,7 +15,7 @@ struct ProductDetailView: View {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Spacer()
-                    AsyncImage(url: URL(string: product.image)) { image in
+                    AsyncImage(url: URL(string: product.thumbnail)) { image in
                         image
                             .resizable()
                             .scaledToFit()
@@ -31,7 +31,7 @@ struct ProductDetailView: View {
                     .font(.title2)
                     .bold()
 
-                Text(product.category)
+                Text(product.category.capitalized)
                     .foregroundColor(.secondary)
 
                 Text("$\(product.price, specifier: "%.2f")")
@@ -39,8 +39,8 @@ struct ProductDetailView: View {
                     .bold()
 
                 Text(product.description)
-
-                Text("Rating: \(product.rating.rate, specifier: "%.1f")")
+                Text("Rating: \(product.rating, specifier: "%.1f")")
+                Text("Stock: \(product.stock)")
             }
             .padding()
         }

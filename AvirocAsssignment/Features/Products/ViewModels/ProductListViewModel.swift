@@ -56,10 +56,7 @@ final class ProductListViewModel {
 
     private func setupSearchDebounce() {
         searchSubject
-            .debounce(
-                for: .milliseconds(500),
-                scheduler: RunLoop.main
-            )
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] _ in
                 self?.applyFilters()
@@ -75,7 +72,6 @@ final class ProductListViewModel {
                 if case .failure(let error) = completion {
                     self?.state = .failure(error)
                 }
-
             } receiveValue: { [weak self] products in
                 guard let self else { return }
                 self.products = products
@@ -87,37 +83,35 @@ final class ProductListViewModel {
     func applyFilters() {
         var filtered = products
 
+        // Search
         if !searchText.isEmpty {
             filtered = filtered.filter {
                 $0.title.localizedCaseInsensitiveContains(searchText)
             }
         }
 
+        // Category
         if selectedCategory != "All" {
             filtered = filtered.filter {
                 $0.category == selectedCategory
             }
         }
 
+        // Sorting
         switch sortOption {
         case .priceLowToHigh:
             filtered.sort { $0.price < $1.price }
-
         case .priceHighToLow:
             filtered.sort { $0.price > $1.price }
-
         case .rating:
-            filtered.sort { $0.rating.rate > $1.rating.rate }
+            filtered.sort { $0.rating > $1.rating }
         }
 
         state = filtered.isEmpty ? .empty : .success(filtered)
     }
 
     var categories: [String] {
-        let categories = Set(
-            products.map { $0.category }
-        )
-
+        let categories = Set(products.map { $0.category })
         return ["All"] + categories.sorted()
     }
 }

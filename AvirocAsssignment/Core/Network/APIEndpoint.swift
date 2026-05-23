@@ -7,25 +7,37 @@
 
 import Foundation
 
-//enum APIEndpoint {
-//    static let products = "https://fakestoreapi.com/products"
-//}
+//
+//  APIEndpoint.swift
+//  AvirocAssignment
+//
+//  Created by Ashish Baghel on 23/05/2026.
+//
+
+import Foundation
 
 enum APIEndpoint {
-    static let baseURL = "https://fakestoreapi.com"
+
+    static let baseURL = "https://dummyjson.com"
 
     static var products: URLRequest {
         get throws {
-            try URLRequest.make(url: baseURL + "/products")
+            try URLRequest.make(
+                url: baseURL + "/products"
+            )
         }
     }
 
-    static func products(page: Int, limit: Int = 5) throws -> URLRequest {
-        try URLRequest.make(
+    static func products(page: Int,
+                         limit: Int = 10) throws -> URLRequest {
+
+        let skip = (page - 1) * limit
+
+        return try URLRequest.make(
             url: baseURL + "/products",
             queryParameters: [
-                "page": "\(page)",
-                "limit": "\(limit)"
+                "limit": "\(limit)",
+                "skip": "\(skip)"
             ]
         )
     }
