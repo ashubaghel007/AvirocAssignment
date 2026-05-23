@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct ProductDetailView: View {
-
     let product: Product
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                AsyncImage(url: URL(string: product.image)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
+                HStack {
+                    Spacer()
+                    AsyncImage(url: URL(string: product.image)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(height: 250)
+                    Spacer()
                 }
-                .frame(height: 250)
 
                 Text(product.title)
                     .font(.title2)
