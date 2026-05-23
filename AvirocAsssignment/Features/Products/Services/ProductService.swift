@@ -20,6 +20,12 @@ final class ProductService: ProductServiceProtocol {
     }
 
     func fetchProducts() -> AnyPublisher<[Product], APIError> {
-        return networkService.request([Product].self, url: APIEndpoint.products)
+        do {
+            let request = try APIEndpoint.products
+            return networkService.request([Product].self, request: request)
+        } catch {
+            return Fail(error: APIError.invalidURL)
+                .eraseToAnyPublisher()
+        }
     }
 }

@@ -6,10 +6,9 @@
 //
 
 import Combine
+import Foundation
 
 protocol NetworkServiceProtocol {
-    func request<T: Decodable>(
-        _ type: T.Type,
-        url: String
-    ) -> AnyPublisher<T, APIError>
+    func request<T: Decodable>(_ type: T.Type,
+                               request: URLRequest) -> AnyPublisher<T, APIError>
 }

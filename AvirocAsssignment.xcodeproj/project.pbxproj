@@ -44,6 +44,7 @@
 				Features/Products/Views/ProductDetailView.swift,
 				Features/Products/Views/ProductListView.swift,
 				Shared/States/ViewState.swift,
+				"Shared/URLRequest+Extension.swift",
 			);
 			target = 46A1C41F2FC0C5D4007AE75E /* AvirocAsssignmentTests */;
 		};
@@ -61,6 +62,7 @@
 				Features/Products/Views/ProductDetailView.swift,
 				Features/Products/Views/ProductListView.swift,
 				Shared/States/ViewState.swift,
+				"Shared/URLRequest+Extension.swift",
 			);
 			target = 46A1C4292FC0C5D4007AE75E /* AvirocAsssignmentUITests */;
 		};
