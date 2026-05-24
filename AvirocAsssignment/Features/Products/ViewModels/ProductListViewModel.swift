@@ -88,7 +88,7 @@ final class ProductListViewModel {
             page: currentPage,
             limit: limit
         )
-        .receive(on: RunLoop.main)
+        .receive(on: DispatchQueue.main)
         .sink { [weak self] completion in
             guard let self else { return }
             self.isLoading = false
