@@ -7,15 +7,6 @@
 
 import Foundation
 
-//
-//  APIEndpoint.swift
-//  AvirocAssignment
-//
-//  Created by Ashish Baghel on 23/05/2026.
-//
-
-import Foundation
-
 enum APIEndpoint {
 
     static let baseURL = "https://dummyjson.com"
