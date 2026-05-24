@@ -9,7 +9,7 @@ import Combine
 
 protocol ProductServiceProtocol {
     func fetchProducts(page: Int,
-                       limit: Int) -> AnyPublisher<[Product], APIError>
+                       limit: Int) -> AnyPublisher<[Product], CoreError>
 }
 
 final class ProductService: ProductServiceProtocol {
@@ -21,7 +21,7 @@ final class ProductService: ProductServiceProtocol {
     }
 
     func fetchProducts(page: Int,
-                       limit: Int) -> AnyPublisher<[Product], APIError> {
+                       limit: Int) -> AnyPublisher<[Product], CoreError> {
 
         do {
             let request = try APIEndpoint.products(page: page,
@@ -32,7 +32,7 @@ final class ProductService: ProductServiceProtocol {
                 .map { $0.products }
                 .eraseToAnyPublisher()
         } catch {
-            return Fail(error: APIError.invalidURL)
+            return Fail(error: CoreError.invalidURL)
                 .eraseToAnyPublisher()
         }
     }

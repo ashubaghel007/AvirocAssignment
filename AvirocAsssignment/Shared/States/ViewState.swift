@@ -12,5 +12,5 @@ enum ViewState<T> {
     case loading
     case empty
     case success(T)
-    case failure(APIError)
+    case failure(CoreError)
 }

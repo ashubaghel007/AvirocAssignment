@@ -34,7 +34,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Network/APIEndpoint.swift,
-				Core/Network/APIError.swift,
+				Core/Network/CoreError.swift,
 				Core/Network/NetworkService.swift,
 				Core/Network/NetworkServiceProtocol.swift,
 				Features/Products/Models/Product.swift,
@@ -52,7 +52,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Core/Network/APIEndpoint.swift,
-				Core/Network/APIError.swift,
+				Core/Network/CoreError.swift,
 				Core/Network/NetworkService.swift,
 				Core/Network/NetworkServiceProtocol.swift,
 				Features/Products/Models/Product.swift,

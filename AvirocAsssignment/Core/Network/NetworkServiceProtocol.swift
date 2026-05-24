@@ -10,5 +10,5 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func request<T: Decodable>(_ type: T.Type,
-                               request: URLRequest) -> AnyPublisher<T, APIError>
+                               request: URLRequest) -> AnyPublisher<T, CoreError>
 }

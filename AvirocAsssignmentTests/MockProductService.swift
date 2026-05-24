@@ -9,11 +9,11 @@ import Foundation
 
 final class MockProductService: ProductServiceProtocol {
 
-    var result: Result<[Product], APIError> = .success([])
+    var result: Result<[Product], CoreError> = .success([])
     var fetchCallCount = 0
 
     func fetchProducts(page: Int,
-                       limit: Int) -> AnyPublisher<[Product], APIError> {
+                       limit: Int) -> AnyPublisher<[Product], CoreError> {
 
         fetchCallCount += 1
 

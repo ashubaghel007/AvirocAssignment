@@ -13,7 +13,7 @@ extension URLRequest {
                      headers: [String: String]? = nil) throws -> URLRequest {
 
         guard var components = URLComponents(string: url) else {
-            throw APIError.invalidURL
+            throw CoreError.invalidURL
         }
 
         if let queryParameters {
@@ -23,7 +23,7 @@ extension URLRequest {
         }
 
         guard let url = components.url else {
-            throw APIError.invalidURL
+            throw CoreError.invalidURL
         }
 
         var request = URLRequest(url: url)

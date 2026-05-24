@@ -1,5 +1,5 @@
 //
-//  APIError.swift
+//  CoreError.swift
 //  AvirocAssignment
 //
 //  Created by Ashish Baghel on 23/05/2026.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIError: Error, LocalizedError, Equatable {
+enum CoreError: Error, LocalizedError, Equatable {
     case invalidURL
     case invalidResponse
     case decodingError
@@ -24,7 +24,7 @@ enum APIError: Error, LocalizedError, Equatable {
         }
     }
 
-    static func == (lhs: APIError, rhs: APIError) -> Bool {
+    static func == (lhs: CoreError, rhs: CoreError) -> Bool {
         switch (lhs, rhs) {
         case (.invalidURL, .invalidURL),
             (.invalidResponse, .invalidResponse),
